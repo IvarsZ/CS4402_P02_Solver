@@ -48,11 +48,11 @@ module CP
     def solve()
     
       @nodes_count = 0
-      @revision_coun = 0
+      @revision_count = 0
       
       order
       
-      forward_checking(0)
+      forward_checking
     end
     
     def set_order(*names_order)
@@ -69,6 +69,8 @@ module CP
     end
     
     def forward_checking(depth)
+    
+      puts @nodes_count
     
       if @heuristics == "sdf"
         sdf_order(depth)
