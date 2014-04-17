@@ -74,3 +74,4 @@ end
 k5.heuristics = "sdf"
 k5.solve
 puts k5.nodes_count
+puts k5.revision_count

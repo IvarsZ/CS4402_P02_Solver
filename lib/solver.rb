@@ -14,6 +14,8 @@ module CP
     attr_reader :variables
     attr_reader :constraints
     attr_reader :nodes_count
+    attr_reader :revision_count
+    
     attr_writer :heuristics
 
     def initialize
@@ -46,6 +48,8 @@ module CP
     def solve()
     
       @nodes_count = 0
+      @revision_coun = 0
+      
       order
       
       forward_checking(0)
@@ -110,6 +114,7 @@ module CP
       
       @variable_order.last(size - depth - 1).each do |future_variable|
       
+        @revision_count += 1
         future_variable.revise(current_variable, depth)
         
         if future_variable.not_consistent
@@ -120,6 +125,4 @@ module CP
       return true
     end
   end
-
-  
 end
